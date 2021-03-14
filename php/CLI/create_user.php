@@ -1,15 +1,8 @@
 <?php
-require "../classes/user_options.php";
-require "../classes/validations.php";
 
-// readline('Create a New User');
-
-// $user_val = readline('Insert a Valid Email: '); 
-// $pass_val = readline('Insert a Password: '); 
-
-// $user_pro =  new user_exe($user_value, $pass_value);
-
-// $user_valid = $user_pro->create_user();
+include "../classes/db_connections.php";
+include "../classes/user_options.php";
+include "../classes/validations.php";
 
 readline('Welcome, CLI to create a new user');
 
