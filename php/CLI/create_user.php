@@ -5,14 +5,11 @@ include '../classes/user_options.class.php';
 
 readline('Welcome, CLI to create a new user');
 
-$user = "";
-$pss="";
 $valid_user = new validations();
 
-$user = readline('Insert a valid email: ');
+$user = "";
 
-
-do{
+while ($user == ""){
     $user = readline('Insert a valid email: ');
         
     $user_valid = $valid_user->email_validation($user);
@@ -23,7 +20,7 @@ do{
     } else{
         $pss = readline('Insert a password: ');
     }
-} while ($user == "");
+}
     
     $user_data = new user_options();
     $process_result = $user_data->create_user($user,$pss);
