@@ -1,43 +1,62 @@
 <!DOCTYPE html>
 <html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, shrink-to-fit=no"
+    />
+    <link rel="stylesheet" href="css/bootstrap.min.css" />
+    <link rel="stylesheet" href="css/styles.css" />
 
-<head>
-  <meta charset="UTF-8" />
-  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
-  <link rel="stylesheet" href="/css/bootstrap.min.css" />
-  <link rel="stylesheet" href="/css/styles.css" />
+    <title>Xentral Test - LogIn</title>
+  </head>
 
-  <title>Xentral Test - LogIn</title>
-</head>
-
-<body>
-  <div class="container">
-    <div class="row">
-      <div class="col-md-12 div-login">
-        <div class="card card-login">
-          <div class="card-header">Login Form</div>
-          <div class="card-body">
-            <div class="form" id="login-form">
-              <div class="form-group">
-                <label for="email">Email User</label>
-                <input id="email" type="email" class="form-control" placeholder="Email" />
+  <body>
+    <div class="container">
+      <div class="row">
+        <div class="col-md-12 div-login">
+          <div class="card card-login">
+            <div class="card-header">Login Form</div>
+            <div class="card-body">
+              <div class="form" id="login-form">
+                <div class="form-group">
+                  <label for="email">Email User</label>
+                  <p style="color: red" id="emailalert"></p>
+                  <input
+                    id="email"
+                    type="email"
+                    name="email"
+                    class="form-control"
+                    placeholder="Email"
+                  />
+                </div>
+                <div class="form-group">
+                  <label for="pss">Password</label>
+                  <p style="color: red" id="pssalert"></p>
+                  <input
+                    id="pss"
+                    type="password"
+                    name="pss"
+                    class="form-control"
+                    placeholder="Password"
+                  />
+                </div>
               </div>
-              <div class="form-group">
-                <label for="pss">Password</label>
-                <input id="pss" type="password" class="form-control" placeholder="Password" />
-              </div>
+              <p style="color: red" id="loginalert"></p>
+              <a style="color: white" onclick="login()" class="btn btn-primary"
+                >LogIn</a
+              >
             </div>
-            <a href="#" class="btn btn-primary">LogIn</a>
           </div>
         </div>
       </div>
     </div>
-  </div>
 
-  <script src="/js/jquery.min.js"></script>
-  <script src="/js/popper.min.js"></script>
-  <script src="/js/bootstrap.min.js"></script>
-</body>
-
+    <script src="js/jquery.js"></script>
+    <script src="js/popper.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <script src="js/main.js"></script>
+  </body>
 </html>
