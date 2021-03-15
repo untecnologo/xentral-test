@@ -32,12 +32,31 @@
             return false;
         } else {
             $stmt = $pdo_updated->prepare("INSERT INTO users (email, password) VALUES (:email_user, :password_user)");
+            $hashed_password = password_hash($psw_parameter, PASSWORD_DEFAULT);
             $stmt->bindParam('email_user', $user_parameter);
-            $stmt->bindParam('password_user', $psw_parameter);
+            $stmt->bindParam('password_user', $hashed_password);
             $stmt->execute();
 
             $this->drop_connect($pdo_updated, $stmt);
             return true;
+        }
+    }
+
+    protected function login_process($user_parameter, $psw_parameter){
+        $pdo_updated = $this->connect();
+        $stmt = $pdo_updated->prepare("SELECT * FROM users WHERE email = :email_user");
+        $stmt->bindParam(':email_user', $user_parameter);
+        $stmt->execute();
+        if ($stmt->rowCount()>0){
+            $result = $stmt -> fetch(PDO::FETCH_ASSOC);
+            $hash_pwd = $result['password'];
+            $hash = password_verify($psw_parameter,$hash_pwd);
+
+            if($hash){
+                return $hash;
+            }
+        } else{
+            return false;
         }
     }
 

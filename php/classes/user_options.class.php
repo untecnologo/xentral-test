@@ -19,6 +19,20 @@ class user_options extends db_connections {
             return true;
         }
     }
+
+    public function login($email, $pwd){
+        $this->user = $email;
+        $this->password = $pwd;
+        $connection = new db_connections();
+        $resultq = $connection->login_process($this->user, $this->password);
+
+        if($resultq == true){
+           
+            return true;
+        } else{
+            return false;
+        }
+    }
 }
 
 ?>
