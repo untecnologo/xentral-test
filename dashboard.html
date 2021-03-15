@@ -1,38 +1,92 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Dashboard</title>
 
-    <link rel="stylesheet" href="css/bootstrap.min.css" />
-    <link rel="stylesheet" href="css/styles.css" />
-  </head>
-  <body>
-    <nav class="navbar navbar-expand-lg navbar-light bg-light">
-      <a class="navbar-brand">XENTRAL - TEST</a>
-      <ul class="navbar-nav">
-        <li class="nav-item dropdown">
-          <a
-            class="nav-link dropdown-toggle current_user_active"
-            href="#"
-            id="current_user"
-            data-toggle="dropdown"
-            aria-haspopup="true"
-            aria-expanded="false"
-          >
-            Current User
-          </a>
-          <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-            <a class="dropdown-item" onclick="close_session()">Log Out</a>
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Dashboard</title>
+
+  <link rel="stylesheet" href="css/bootstrap.min.css" />
+  <link rel="stylesheet" href="css/styles.css" />
+</head>
+
+<body>
+  <nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <a class="navbar-brand">XENTRAL - TEST</a>
+    <ul class="navbar-nav">
+      <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle current_user_active" href="#" id="current_user" data-toggle="dropdown"
+          aria-haspopup="true" aria-expanded="false">
+        </a>
+        <div id="logout_div" class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+          <a class="dropdown-item" onclick="close_session()">Log Out</a>
+        </div>
+      </li>
+    </ul>
+  </nav>
+  <div class="container dashboard-options">
+    <div class="row">
+      <div class="container">
+        <div class="row">
+          <div class="col-md-12">
+            <div class="panel panel-primary">
+              <div class="panel-heading">
+                <h3 class="panel-title">Post Administration</h3>
+                <span class="pull-right">
+                  <!-- Tabs -->
+                  <ul class="nav nav-tabs">
+                    <li class="nav-item" class="active"><a class="nav-link" href="#tab1" data-toggle="tab">NEW POST</a>
+                    </li>
+                    <li class="nav-item"><a class="nav-link" href="#tab2" data-toggle="tab">LIST OF POSTS</a></li>
+                  </ul>
+                </span>
+              </div>
+              <div class="panel-body">
+                <div class="tab-content">
+                  <div class="tab-pane active" id="tab1">
+                    <form class="form" id="newPost" style="padding-bottom: 45px;">
+                      <div class="form-group">
+                        <label for="titlePost">Post Title</label>
+                        <input type="text" id="titlePost" class="form-control" placeholder="Post Title">
+                      </div>
+                      <div class="form-group">
+                        <label for="author">Author</label>
+                        <input type="text" id="author" name="author" class="form-control" disabled>
+                      </div>
+                      <div class="form-group">
+                        <label for="textArea">Text</label>
+                        <textarea name="textArea" id="textArea" cols="80" rows="10"></textarea>
+                      </div>
+                      <a style="color: white;" onclick="registerPost()" class="btn btn-primary">Post</a>
+                    </form>
+                  </div>
+                  <div class="tab-pane" id="tab2">
+                    <table id="resultTablePost">
+                      <tr>
+                        <th>Title</th>
+                        <th>Author</th>
+                        <th>Text</th>
+                      </tr>
+                    </table>
+                  </div>
+                </div>
+              </div>
+            </div>
           </div>
-        </li>
-      </ul>
-    </nav>
-    <script src="js/jquery.js"></script>
-    <script src="js/popper.min.js"></script>
-    <script src="js/bootstrap.min.js"></script>
-    <script src="js/main.js"></script>
-  </body>
+        </div>
+      </div>
+    </div>
+  </div>
+  <script src="js/jquery.js"></script>
+  <script src="js/popper.min.js"></script>
+  <script src="js/bootstrap.min.js"></script>
+  <script src="js/main.js"></script>
+  <script src="js/plugins/ckeditor/ckeditor.js"></script>
+  <script src="js/blog.js"></script>
+  <script>
+    CKEDITOR.replace('textArea');
+  </script>
+</body>
+
 </html>

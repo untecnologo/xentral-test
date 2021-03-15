@@ -1,6 +1,6 @@
 <?php
 include '../classes/validations.class.php';
-include '../classes/user_options.class.php';
+include '../classes/userOptions.class.php';
 
 
 readline('Welcome, CLI to create a new user');
@@ -12,7 +12,7 @@ $user = "";
 while ($user == ""){
     $user = readline('Insert a valid email: ');
         
-    $user_valid = $valid_user->email_validation($user);
+    $user_valid = $valid_user->emailValidation($user);
     
     if ($user_valid == false){
         readline('Email is not valid');
@@ -22,8 +22,8 @@ while ($user == ""){
     }
 }
     
-    $user_data = new user_options();
-    $process_result = $user_data->create_user($user,$pss);
+    $user_data = new userOptions();
+    $process_result = $user_data->createUser($user,$pss);
 
     if($process_result === true){
         readline('User created succesfully');
