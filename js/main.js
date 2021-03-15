@@ -36,3 +36,14 @@ function login() {
     });
 
 }
+
+$(document).ready(function () {
+    $.ajax({
+        url: '/xentral-test-git/php/process/session_validation.php',
+        dataType: "JSON",
+        success: function (resp) {
+            alert(resp);
+            $("#current_user").html(resp);
+        }
+    });
+})
